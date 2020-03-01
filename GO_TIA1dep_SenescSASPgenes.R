@@ -40,14 +40,16 @@ GO_Genes
 
 ## CONVERT TO ENSGIDs
 GO_ENSGIDs <- mapIds(org.Mm.eg.db, keys=GO_Genes, column='ENSEMBL', keytype='ALIAS',multiVals="first")	
+GO_ENSGIDs <- unique(GO_ENSGIDs)
 length(GO_ENSGIDs)
 
 ## CONVERT HUMAN SENESCENCE/SASP-RELATED GENES TO MOUSE ENSGIDs
 SEN_genes_hs <-as.character(read.csv(file = "GeneCards_SASP_OR_Senescence.csv")$Gene.Symbol)
 SEN_ENSGIDs_hs <- mapIds(org.Hs.eg.db, keys=SEN_genes_hs, column='ENSEMBL', keytype='ALIAS',multiVals="first")	
 SEN_ENSGIDs_mm <- Human2Mouse(SEN_ENSGIDs_hs) 
-SEN_ENSGIDs_mm <- SEN_ENSGIDs_mm[grepl("ENSMUSG",SEN_ENSGIDs_mm)]
+SEN_ENSGIDs_mm <- unique(SEN_ENSGIDs_mm[grepl("ENSMUSG",SEN_ENSGIDs_mm)])
 length(SEN_ENSGIDs_mm)
 
+## PROPORTION OF CORRESPONDING ENSGIDs
 sum(is.element(GO_ENSGIDs,SEN_ENSGIDs_mm))/length(GO_ENSGIDs)
 
