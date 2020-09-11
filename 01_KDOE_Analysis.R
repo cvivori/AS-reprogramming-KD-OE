@@ -138,8 +138,8 @@ DOWN_OE <- lapply(VTS_OE, function(x) {y <- subset(x, dPSI <0); return(y)})
 
 ## CALCULATE RELEVANT OVERLAPS/DIFFERENCES
 # PROPORTION OF EVENTS THAT ARE OVERLAPPING IN THE 2 shRNAs
-sum(is.element(VTS_KD$d12.d00_shC1$EVENT,VTS_KD$d12.d00_shC5$EVENT)) / length(VTS_KD$d12.d00_shC1$EVENT)
-sum(is.element(VTS_KD$d12.d00_shU3$EVENT,VTS_KD$d12.d00_shU4$EVENT)) / length(VTS_KD$d12.d00_shU3$EVENT)
+sum(is.element(VTS_KD$d12.d00_shC5$EVENT,VTS_KD$d12.d00_shC1$EVENT)) / length(VTS_KD$d12.d00_shC5$EVENT)
+sum(is.element(VTS_KD$d12.d00_shU4$EVENT,VTS_KD$d12.d00_shU3$EVENT)) / length(VTS_KD$d12.d00_shU4$EVENT)
 sum(is.element(VTS_KD$d12_shC1.shSCR$EVENT,VTS_KD$d12_shC5.shSCR$EVENT)) / length(VTS_KD$d12_shC1.shSCR$EVENT)
 sum(is.element(VTS_KD$d12_shU3.shSCR$EVENT,VTS_KD$d12_shU4.shSCR$EVENT)) / length(VTS_KD$d12_shU3.shSCR$EVENT)
 
