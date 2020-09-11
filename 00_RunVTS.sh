@@ -29,10 +29,6 @@
 # qsub_job 6 6 6 -N vtCMP vast-tools-2.2.2 compare vast_out/INCLUSION_LEVELS_FULL-Mm218.tab -a KD_day00_Ctrl_1,KD_day00_Ctrl_2 -b KD_day12_shCPSF3_n5_1,KD_day12_shCPSF3_n5_2 --min_dPSI 0 --min_range 0  --GO -sp Mm2 --print_dPSI --print_sets
 # qsub_job 6 6 6 -N vtCMP vast-tools-2.2.2 compare vast_out/INCLUSION_LEVELS_FULL-Mm218.tab -a KD_day00_Ctrl_1,KD_day00_Ctrl_2 -b KD_day12_shUL1_n3_1,KD_day12_shUL1_n3_2 --min_dPSI 0 --min_range 0  --GO -sp Mm2 --print_dPSI --print_sets
 # qsub_job 6 6 6 -N vtCMP vast-tools-2.2.2 compare vast_out/INCLUSION_LEVELS_FULL-Mm218.tab -a KD_day00_Ctrl_1,KD_day00_Ctrl_2 -b KD_day12_shUL1_n4_1,KD_day12_shUL1_n4_2 --min_dPSI 0 --min_range 0  --GO -sp Mm2 --print_dPSI --print_sets
-# qsub_job 6 6 6 -N vtCMP vast-tools-2.2.2 compare vast_out/INCLUSION_LEVELS_FULL-Mm218.tab -a KD_day12_shSCR_1,KD_day12_shSCR_2 -b KD_day12_shCPSF3_n1_1,KD_day12_shCPSF3_n1_2 --min_dPSI 0 --min_range 0  --GO -sp Mm2 --print_dPSI --print_sets
-# qsub_job 6 6 6 -N vtCMP vast-tools-2.2.2 compare vast_out/INCLUSION_LEVELS_FULL-Mm218.tab -a KD_day12_shSCR_1,KD_day12_shSCR_2 -b KD_day12_shCPSF3_n5_1,KD_day12_shCPSF3_n5_2 --min_dPSI 0 --min_range 0  --GO -sp Mm2 --print_dPSI --print_sets
-# qsub_job 6 6 6 -N vtCMP vast-tools-2.2.2 compare vast_out/INCLUSION_LEVELS_FULL-Mm218.tab -a KD_day12_shSCR_1,KD_day12_shSCR_2 -b KD_day12_shUL1_n3_1,KD_day12_shUL1_n3_2 --min_dPSI 0 --min_range 0  --GO -sp Mm2 --print_dPSI --print_sets
-# qsub_job 6 6 6 -N vtCMP vast-tools-2.2.2 compare vast_out/INCLUSION_LEVELS_FULL-Mm218.tab -a KD_day12_shSCR_1,KD_day12_shSCR_2 -b KD_day12_shUL1_n4_1,KD_day12_shUL1_n4_2 --min_dPSI 0 --min_range 0  --GO -sp Mm2 --print_dPSI --print_sets
 
 # qsub_job 6 6 6 -N vtCMP vast-tools-2.2.2 compare vast_out/INCLUSION_LEVELS_FULL-Mm218.tab -a OE_day00_Ctrl_1,OE_day00_Ctrl_2 -b OE_day12_Empty_1,OE_day12_Empty_2 --min_dPSI 0 --min_range 0  --GO -sp Mm2 --print_dPSI --print_sets
 # qsub_job 6 6 6 -N vtCMP vast-tools-2.2.2 compare vast_out/INCLUSION_LEVELS_FULL-Mm218.tab -a OE_day00_Ctrl_1,OE_day00_Ctrl_2 -b OE_day12_T7TIA1_1,OE_day12_T7TIA1_2 --min_dPSI 0 --min_range 0  --GO -sp Mm2 --print_dPSI --print_sets
@@ -47,10 +43,6 @@
 #qsub_job 6 6 6 -N vtCMP vast-tools-2.2.2 compare vast_out/INCLUSION_LEVELS_FULL-Mm218.tab -a KD_day00_Ctrl_1,KD_day00_Ctrl_2 -b KD_day12_shCPSF3_n5_1,KD_day12_shCPSF3_n5_2 --min_dPSI 0 --min_range 0  --GO -sp Mm2 --print_dPSI --print_sets
 #qsub_job 6 6 6 -N vtCMP vast-tools-2.2.2 compare vast_out/INCLUSION_LEVELS_FULL-Mm218.tab -a KD_day00_Ctrl_1,KD_day00_Ctrl_2 -b KD_day12_shUL1_n3_1,KD_day12_shUL1_n3_2 --min_dPSI 0 --min_range 0  --GO -sp Mm2 --print_dPSI --print_sets
 #qsub_job 6 6 6 -N vtCMP vast-tools-2.2.2 compare vast_out/INCLUSION_LEVELS_FULL-Mm218.tab -a KD_day00_Ctrl_1,KD_day00_Ctrl_2 -b KD_day12_shUL1_n4_1,KD_day12_shUL1_n4_2 --min_dPSI 0 --min_range 0  --GO -sp Mm2 --print_dPSI --print_sets
-#qsub_job 6 6 6 -N vtCMP vast-tools-2.2.2 compare vast_out/INCLUSION_LEVELS_FULL-Mm218.tab -a KD_day12_shSCR_1,KD_day12_shSCR_2 -b KD_day12_shCPSF3_n1_1,KD_day12_shCPSF3_n1_2 --min_dPSI 0 --min_range 0  --GO -sp Mm2 --print_dPSI --print_sets
-#qsub_job 6 6 6 -N vtCMP vast-tools-2.2.2 compare vast_out/INCLUSION_LEVELS_FULL-Mm218.tab -a KD_day12_shSCR_1,KD_day12_shSCR_2 -b KD_day12_shCPSF3_n5_1,KD_day12_shCPSF3_n5_2 --min_dPSI 0 --min_range 0  --GO -sp Mm2 --print_dPSI --print_sets
-#qsub_job 6 6 6 -N vtCMP vast-tools-2.2.2 compare vast_out/INCLUSION_LEVELS_FULL-Mm218.tab -a KD_day12_shSCR_1,KD_day12_shSCR_2 -b KD_day12_shUL1_n3_1,KD_day12_shUL1_n3_2 --min_dPSI 0 --min_range 0  --GO -sp Mm2 --print_dPSI --print_sets
-#qsub_job 6 6 6 -N vtCMP vast-tools-2.2.2 compare vast_out/INCLUSION_LEVELS_FULL-Mm218.tab -a KD_day12_shSCR_1,KD_day12_shSCR_2 -b KD_day12_shUL1_n4_1,KD_day12_shUL1_n4_2 --min_dPSI 0 --min_range 0  --GO -sp Mm2 --print_dPSI --print_sets
 
 #qsub_job 6 6 6 -N vtCMP vast-tools-2.2.2 compare vast_out/INCLUSION_LEVELS_FULL-Mm218.tab -a OE_day00_Ctrl_1,OE_day00_Ctrl_2 -b OE_day12_Empty_1,OE_day12_Empty_2 --min_dPSI 0 --min_range 0  --GO -sp Mm2 --print_dPSI --print_sets
 #qsub_job 6 6 6 -N vtCMP vast-tools-2.2.2 compare vast_out/INCLUSION_LEVELS_FULL-Mm218.tab -a OE_day00_Ctrl_1,OE_day00_Ctrl_2 -b OE_day12_T7TIA1_1,OE_day12_T7TIA1_2 --min_dPSI 0 --min_range 0  --GO -sp Mm2 --print_dPSI --print_sets
