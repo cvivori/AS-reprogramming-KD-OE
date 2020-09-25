@@ -88,10 +88,10 @@ dgList_KD
 
 
 #### SET FILTERS HERE
-# 5 cpms at least in 33% of samples? 5 for KDs and 6 for OE
+# 5 cpms at least in 33% of samples? 8 for KDs and 2 for OE
 threshold_cpm <- 5    
 threshold_nsamples_KD <- 8    # 33% of samples
-threshold_nsamples_OE <- 2    
+threshold_nsamples_OE <- 2    # 33% of samples
 
 ## Filtering for minimal gene expression
 keep_KD <- rowSums(cpm(dgList_KD)>threshold_cpm) >= threshold_nsamples_KD    
