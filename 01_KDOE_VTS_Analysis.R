@@ -149,9 +149,7 @@ EV_OVL_OE <- list(
 )
 
 summary(EV_OVL_KD)
-head(EV_OVL_KD$CPSF3_dep)
 summary(EV_OVL_OE)
-head(EV_OVL_OE$TIA1_dep)
 
 ## EXTRACT dPSI VALUES
 dPSI_ctrls <- lapply(CTRLs, function(x) x[,c("EVENT","GENE","COMPLEX","dPSI")])
@@ -270,16 +268,23 @@ mdf_dPSI_OE_allEmp_dPSI0 <- merge(x=mdf_dPSI_OE_dPSI0,y=dPSI_ctrls$d12.d00_Empty
 mdf_dPSI_OE_allEmp_dPSI0$ddPSI <- mdf_dPSI_OE_allEmp_dPSI0$dPSI_test - mdf_dPSI_OE_allEmp_dPSI0$dPSI_control
 mdf_dPSI_OE_allEmp_dPSI0$abs_ddPSI <- abs(mdf_dPSI_OE_allEmp_dPSI0$ddPSI)
 mdf_dPSI_OE_allEmp_dPSI0[which(mdf_dPSI_OE_allEmp_dPSI0$abs_ddPSI <10),"abs_ddPSI"] <- NA
-
 head(mdf_dPSI_OE_allEmp_dPSI0)
 dim(mdf_dPSI_OE_allEmp_dPSI0)
+
+## dPSI >= 10 upon TIA1 OE and no needed difference upon Empty, but with a ddPSI of at least 10
+mdf_dPSI_OE_allEmp <- merge(x=mdf_dPSI_OE,y=dPSI_ctrls$d12.d00_Empty_all,by=c("EVENT","GENE","COMPLEX"),suffixes = c("_test","_control"))
+mdf_dPSI_OE_allEmp$ddPSI <- mdf_dPSI_OE_allEmp$dPSI_test - mdf_dPSI_OE_allEmp$dPSI_control
+mdf_dPSI_OE_allEmp$abs_ddPSI <- abs(mdf_dPSI_OE_allEmp$ddPSI)
+mdf_dPSI_OE_allEmp[which(mdf_dPSI_OE_allEmp$abs_ddPSI <10),"abs_ddPSI"] <- NA
+head(mdf_dPSI_OE_allEmp)
+dim(mdf_dPSI_OE_allEmp)
 
 ### DEFINE TIA1-dependent events accordingly
 EV_OVL_OE$TIA1_dep <- unique(subset(mdf_dPSI_OE_allEmp_dPSI0, abs_ddPSI >= 10)$EVENT)
   tmp <- subset(mdf_dPSI_OE_allEmp, abs(dPSI_test) >=10 | abs(dPSI_control) >=10)
 EV_OVL_OE$TIA1_indep <- unique(subset(tmp, abs(ddPSI) <= 2)$EVENT)
 lapply(EV_OVL_OE,function(x) length(x))
-lapply(EV_OVL_OE,function(x) Wrap_sepMIC(subset(INCL$OE, EVENT %in% x)))
+lapply(EV_OVL_OE,function(x) Wrap_VTS_Events(subset(INCL$OE, EVENT %in% x), "out_CEx"))
 
 ## ADD THESE CATEGORIES TO mdf
 mdf_dPSI_OE_allEmp_dPSI0$categT  <-  rep(NA,nrow(mdf_dPSI_OE_allEmp_dPSI0))
@@ -296,14 +301,12 @@ dim(mdf_dPSI_KD_allSCR_ovlshCU_dPSI0)
 ## PLOT SCATTERPLOT only of TIA1-dep/indep events
 ggplot(subset(mdf_dPSI_OE_allEmp_dPSI0, categT == "TIA1_dep"),
        aes(x=dPSI_control,y=dPSI_test,color=abs_ddPSI)) +
-  #facet_wrap(~Target)+    # divide facets according to Conditions
   coord_equal(xlim = c(-100,100),ylim = c(-100,100)) +     # limits of x and y axes
   geom_vline(xintercept = c(-10,10),size=0.4,linetype = "dashed",color="gray60")+     # vertical lines (change it according to your dPSI_control threshold)
   geom_hline(yintercept = c(-10,10),size=0.4,linetype = "dashed",color="gray60")+     # horizontal lines (change it according to your dPSI_test threshold)
   geom_abline(slope = 1,intercept = c(-10,10), size=0.4,linetype = "solid",color="gray60")+     # diagonal lines (change it according to your ddPSI threshold)
   geom_point(data=subset(mdf_dPSI_OE_allEmp_dPSI0, categT == "TIA1_indep"),size=1,color="grey80") +
   geom_point(size=1) +
-  #geom_text_repel(data=labels,label=labels$EVENT, size=2) +    # labels of events
   scale_color_viridis(option='magma',direction = 1,begin=0.05) +     # color scale
   scale_y_continuous(name="T7TIA1") +
   scale_x_continuous(name="Empty") +
@@ -342,34 +345,14 @@ lapply(Final_OE,function(x) dim(x))
 # write.table(Final_OE[[n]], file=paste("INCL_",n,".txt",sep = ""),sep = "\t",quote = F,row.names = T,col.names = NA)
 # }
 
-
 ## NUMBER OF EVENTS
 lapply(Final_KD, function(x) Wrap_VTS_Events(x, "in_CEx"))
 lapply(Final_OE, function(x) Wrap_VTS_Events(x, "in_CEx"))
 
 
 
-## OVERLAP CPSF3/UL1/TIA1-dep events
-overlapCUT <- calculate.overlap(list(EV_OVL_KD$CPSF3_dep,EV_OVL_KD$UL1_dep,EV_OVL_OE$TIA1_dep))
-# pdf(file="VennDiagram_CPSF3_UL1_TIA1dep.pdf",width = 8, height=8)
-draw.triple.venn( area1 = length(overlapCUT$a1),
-                  area2 = length(overlapCUT$a2),
-                  area3 = length(overlapCUT$a3),
-                  n12 = length(overlapCUT$a2),
-                  n23 = length(overlapCUT$a2),
-                  n13 = length(overlapCUT$a2),
-                  n123 = length(overlapCUT$a5),
-                  cross.area = length(overlapCU$a3),
-                  category = c("CPSF3-dependent","UL1-dependent"),
-                  lwd=0,
-                  fill=c("darkslategray","maroon"),
-                  cat.fontface = "bold", cex = 3,
-                  cat.fontfamily = "Helvetica",
-                  cat.pos =0,
-                  #print.mode=c('raw','percent'),
-                  fontfamily = "Helvetica"
-)
-# dev.off()
+
+
 
 ## OVERLAP CPSF3-UL1 in same direction?
 sh_C <- c("d12.d00_shC1","d12.d00_shC5")
@@ -535,3 +518,7 @@ p +
          panel.grid.major.x = element_blank(), panel.grid.minor.x=element_blank(),
          panel.grid.major.y=element_line(linetype = "dashed",color="gray80"))
 # ggsave(filename = paste0("Overlap_B_depindepAll.pdf"),width=7,height=6,device = cairo_pdf)
+
+
+
+
