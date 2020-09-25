@@ -1,5 +1,6 @@
 # AS-reprogramming-KD-OE
 Analysis of the AS changes in MEF reprogramming regulated by the knockdown of CPSF3/hnRNP UL1 or by the overexpression of TIA1.
+Published in [Vivori et al., 2020](https://www.biorxiv.org/content/10.1101/2020.09.17.299867v1).
 
 **00. Run vast-tools**
 - Dataset available in GEO Database:
