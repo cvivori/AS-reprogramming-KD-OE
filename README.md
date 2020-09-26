@@ -15,10 +15,10 @@ Datasets available in GEO Database.
   - Calculation of cpm values and differential expression analysis.
 
 ### 01. Define sets of CPSF3/UL1/TIA1-dependent and -independent AS events
-- Calculate efficiency of CPSF3/hnRNP UL1 knockdown or TIA1 overexpression ([]()).
-- ([01_KDOE_VTS_Analysis.R](01_KDOE_VTS_Analysis.R)).
+- Calculate efficiency of CPSF3/hnRNP UL1 knockdown or TIA1 overexpression ([01_EdgeR_KDOE_efficiency.R](01_EdgeR_KDOE_efficiency.R)).
+- Define sets of CPSF3/UL1/TIA1-dependent and -independent AS events and their overlaps ([01_KDOE_VTS_Analysis.R](01_KDOE_VTS_Analysis.R)).
 
 ### 02. Study CPSF3/UL1/TIA1-dependent and -independent AS events
-- Sequence features and RNA-binding protein motif enrichment analysis with [Matt](http://matt.crg.eu/)
-- Enrichment of senescence/SASP-associated genes in GO terms enriched in TIA1-dependent AS exons.
+- Analysis of sequence features and RNA-binding protein motif enrichment with [Matt](http://matt.crg.eu/) ([02_Run_Matt_VTS.sh](02_Run_Matt_VTS.sh)).
+- Enrichment of senescence/SASP-associated genes in GO terms enriched in TIA1-dependent AS exons ([02_GO_TIA1dep_SenescSASPgenes.R](02_GO_TIA1dep_SenescSASPgenes.R)).
 
