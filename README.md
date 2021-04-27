@@ -1,7 +1,7 @@
 # AS-reprogramming-KD-OE
 Analysis of the AS changes in MEF reprogramming regulated by the knockdown of CPSF3/hnRNP UL1 (KDs dataset) or by the overexpression of TIA1 (OE dataset).
 Published in [Vivori et al., 2020](https://www.biorxiv.org/content/10.1101/2020.09.17.299867v1).
-Datasets available in GEO Database. 
+Datasets available in GEO Database: Accession number GSE158633. 
 
 ### 00. Run vast-tools and edgeR and apply initial filtering
 - Alternative splicing analysis ([00_Run_VTS.sh](00_Run_VTS.sh)):
