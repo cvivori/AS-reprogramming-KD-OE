@@ -23,5 +23,5 @@ Dataset available in GEO Database: Accession number GSE158633.
 - Enrichment of senescence/SASP-associated genes in GO terms enriched in TIA1-dependent AS exons ([02_GO_TIA1dep_SenescSASPgenes.R](02_GO_TIA1dep_SenescSASPgenes.R)).
 
 ### 03. Run QAPA to quantify alternative polyA and overlap with AS events
-- Transcript quantification with [Salmon](https://github.com/COMBINE-lab/salmon) and alternative polyA quantification with [QAPA](https://github.com/morrislab/qapa)  ([03a_RunQAPA.sh](03a_RunQAPA.sh)).
+- Transcript quantification with [Salmon](https://github.com/COMBINE-lab/salmon) v1.1.0 and alternative polyA quantification with [QAPA](https://github.com/morrislab/qapa)  v1.3.0 ([03a_RunQAPA.sh](03a_RunQAPA.sh)).
 - Define sets of CPSF3/UL1-dependent APA events/genes and their overlap with AS events/genes ([03b_KDOE_QAPA_Analysis.R](03b_KDOE_QAPA_Analysis.R)).
